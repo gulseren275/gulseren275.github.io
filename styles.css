@@ -1,0 +1,14 @@
+body{
+    background: pink;
+}
+
+div{
+    background: blueviolet;
+}
+
+div a {
+    color: black;
+    padding: 10p;
+    font-size: 24px;
+    
+}
