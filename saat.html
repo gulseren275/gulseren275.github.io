@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Dijital Saat</title>
+        <style>
+            #saat {
+                text-align: center;
+                font-size:96px;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="saat"></p>
+
+        <script>
+            setInterval(() => {
+                const suan = new Date();
+                const saat = suan.getHours();
+                const dakika = suan.getMinutes();
+                const saniye = suan.getSeconds();
+                const yazi = saat + ":" + dakika + ":" + saniye;
+                document.getElementById("saat").innerHTML = yazi;
+
+                
+            }, 1000);
+        </script>
+    </body>
+</html>

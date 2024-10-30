@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renk Değiştiren Arka Plan</title>
+</head>
+<body>
+    <h1>Renk Değiştiren Arka Plan</h1>
+    <button onclick="changeBackgroundColor()">Rengi Değiştir</button>
+
+    <script>
+        function getRandomColor() {
+            // 0'dan 255'e kadar rastgele sayılar oluşturarak RGB rengi üret
+            const red = Math.floor(Math.random() * 256);
+            const green = Math.floor(Math.random() * 256);
+            const blue = Math.floor(Math.random() * 256);
+
+            return `rgb(${red}, ${green}, ${blue})`;
+        }
+
+        function changeBackgroundColor() {
+            const randomColor = getRandomColor();
+            document.body.style.backgroundColor = randomColor;
+        }
+    </script>
+</body>
+</html>

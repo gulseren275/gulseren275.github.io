@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Sayı Tahmin Oyunu</title>
+    </head>
+    <body>
+        <input type="text" id="tahmin">
+        <button id="dogrula">Tahmin Et</button>
+        <p>Kalan hak sayısı: <span id="kalan">5</span></p>
+        <p id ="sonuc"></p>
+        <script>
+            const sayi = 1 + Math.floor(Math.random() * 100);
+            let kalan = 5;
+
+            document.getElementById("dogrula").addEventListener("click", () => {
+                const tahmin = document.getElementById("tahmin").value; // Fixed here
+                
+                kalan = kalan - 1;
+
+                document.getElementById("kalan").innerHTML = kalan;
+
+                if (kalan <= 0) {
+                    alert("Hiç hakkınız kalmadı. Doğru cevap: " + sayi);
+                    return;
+                }
+                if (sayi == tahmin) {
+                    document.getElementById("sonuc").innerHTML = "TEBRİKLER! DOĞRU BİLDİNİZ!!!";
+                } else if (sayi < tahmin) {
+                    document.getElementById("sonuc").innerHTML = "DAHA KÜÇÜK BİR SAYI TAHMİN EDİN!";
+                } else if (sayi > tahmin) {
+                    document.getElementById("sonuc").innerHTML = "DAHA BÜYÜK BİR SAYI TAHMİN EDİN!";
+                }
+            });
+        </script>
+    </body>
+</html>

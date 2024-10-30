@@ -1,0 +1,88 @@
+
+<html>
+<head>
+    
+    
+    <title>GÖRSELLER</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #gallery {
+            display:flex;
+            flex-wrap: wrap;
+            gap:20 px;
+        }
+        #gallery img {
+            width: 24%;
+            
+        }
+        #gallery-popup {
+            display:none;
+            align-items:center;
+            justify-content:center;
+            position:fixed;
+            top:5%;
+            left:5%;
+            width:90%;
+            height: 90%;
+            background: palevioletred
+        }
+        #gallery-popup img{
+            width:100%;
+        }
+        #gallery-popup-close{
+            position:absolute;
+            top:0;
+            right:0;
+        }
+        #gallery-popup-close:hover{
+            background:aqua
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="hakkımızda">Hakkımızda</a>
+        <a href="iletişim">İletişim</a>
+        <a href="görseller">Görseller</a>
+    </div>
+    
+    <div id="gallery">
+        <img src="https://www.sephora.com.tr/dw/image/v2/BCZG_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwb98e1ecf/images/hi-res/SKU/SKU_5143/718270_swatch.jpg?sw=240&sh=240&sm=fit" alt="Image 1">
+        <img src="https://www.sephora.com.tr/dw/image/v2/BCZG_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwd0f443cb/images/hi-res/PID_principal/PID_principal_3798/P10052706_principal.jpg?sw=240&sh=240&sm=fit" alt="Image 2">
+        <img src="https://www.sephora.com.tr/dw/image/v2/BCZG_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw2b066a1a/images/hi-res/SKU/SKU_2299/505321_swatch.jpg?sw=240&sh=240&sm=fit" alt="Image 3">
+        <img src="https://www.sephora.com.tr/dw/image/v2/BCZG_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwa5fb7e81/images/hi-res/SKU/SKU_890/442087_swatch.jpg?sw=240&sh=240&sm=fit" alt="Image 4">
+        <img src="https://www.sephora.com.tr/dw/image/v2/BCZG_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw21945cd8/images/hi-res/alternates/PID_alternate1/PID_alternate1_3880/P10059611_1.jpg?sw=265&sh=265&sm=fit">
+        <img src="https://www.sephora.com.tr/dw/image/v2/BCZG_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwdc03a53a/images/hi-res/alternates/PID_alternate1/PID_alternate1_2316/P10034209_1.jpg?sw=265&sh=265&sm=fit">
+        <img src="https://www.sephora.com.tr/dw/image/v2/BCZG_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwa30deef6/images/hi-res/alternates/PID_alternate1/PID_alternate1_3155/P10052130_1.jpg?sw=265&sh=265&sm=fit">
+        <img src="https://www.sephora.com.tr/dw/image/v2/BCZG_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw70558502/images/hi-res/alternates/PID_alternate1/PID_alternate1_584/P3966089_1.jpg?sw=265&sh=265&sm=fit">
+    </div>
+    <div id="gallery-popup">
+        <img src="https://www.sephora.com.tr/dw/image/v2/BCZG_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwb98e1ecf/images/hi-res/SKU/SKU_5143/718270_swatch.jpg?sw=240&sh=240&sm=fit" alt="Image 1">
+        <img src="https://www.sephora.com.tr/dw/image/v2/BCZG_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwd0f443cb/images/hi-res/PID_principal/PID_principal_3798/P10052706_principal.jpg?sw=240&sh=240&sm=fit" alt="Image 2">
+        <img src="https://www.sephora.com.tr/dw/image/v2/BCZG_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw2b066a1a/images/hi-res/SKU/SKU_2299/505321_swatch.jpg?sw=240&sh=240&sm=fit" alt="Image 3">
+        <img src="https://www.sephora.com.tr/dw/image/v2/BCZG_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwa5fb7e81/images/hi-res/SKU/SKU_890/442087_swatch.jpg?sw=240&sh=240&sm=fit" alt="Image 4">
+    
+        <button id="gallery-popup-close">X</button>
+
+    </div>
+    
+        
+        
+    
+    <script>
+        const images= document.querySelectorAll("#gallery img");
+        images.forEach(img =>{
+            img.addEventListener('click',(e)=>{
+                document.getElementById("gallery-popup").style.display="flex";
+                document.querySelector("#gallery-popup img").setAttribue("src",e.target.src);
+            });
+        });
+        document.getElementById("gallery-popup-close").addEventListener('click',()=> {
+            document.getElementById("gallery-popup").style.display="none";
+        })
+    </script>
+
+</
+</body>
+</html>

@@ -9,6 +9,9 @@ div{
 div a {
     color: black;
     padding: 10p;
-    font-size: 24px;
+    font-size: 30px;
     
+}
+img {
+    width: 100%;
 }
