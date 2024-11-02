@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Köpek Fotoğrafları</title>
+        <style>
+            body{
+                text-align:center;
+                background: lightskyblue
+            }
+            #fotograflar {
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+            #fotograflar img  {
+                width: calc((100% - 4 * 10px)/5);
+                height:200px;
+                flex:1;
+                object-fit: contain;
+                background: black;
+            }
+        </style>
+
+    </head>
+    <body>
+        <h1>Köpek Fotoğrafları</h1>
+        <button id="fotograf-yukle">Fotoğrafları Yükle</button>
+        <div id="fotograflar"></div>
+        <script>
+            async function load() {
+                const response = await fetch("https://api.thedogapi.com/v1/images/search?limit=10")
+                const data = await response.json();
+                 // Önceki resimleri temizle
+            document.getElementById("fotograflar").innerHTML = '';
+
+
+                for (const d of data) {
+                    const img= document.createElement("img");
+                    img.src = d.url;
+                    img.height = d.height;
+                    img.width = d.width;
+
+                    document.getElementById("fotograflar").appendChild(img);
+                }
+                    
+                }
+                
+
+                document.getElementById("fotograf-yukle").addEventListener('click',load);
+            
+        </script>
+    </body>
+</html>
