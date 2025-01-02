@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEPHORA - Zarif Güzellik</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=EB+Garamond&display=swap" rel="stylesheet">
+    <style>
+        /* Genel Ayarlar */
+        body {
+            margin: 0;
+            font-family: 'EB Garamond', serif;
+            background-color: #f9f7f3;
+            color: #4a3c3c;
+        }
+
+        /* Başlık */
+        header {
+            background-color: #f1e8d4;
+            color: #5c4b3b;
+            text-align: center;
+            padding: 60px 30px;
+            border-bottom: 4px solid #d1c6b1;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        header .sub-title {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.5em;
+            margin-top: 10px;
+            font-style: italic;
+            color: #8c7a64;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 30px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #d1c6b1;
+        }
+
+        /* Logo ve SEPHORA yazısı */
+        nav .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        nav .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        nav h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            margin: 0;
+            color: #5c4b3b;
+        }
+
+        /* Menü Linkleri */
+        nav a {
+            text-decoration: none;
+            color: #5c4b3b;
+            font-weight: 500;
+            font-size: 1.1em;
+            padding: 10px 20px;
+            transition: all 0.3s;
+            border-radius: 12px;
+        }
+
+        nav a:hover {
+            background-color: #d1c6b1;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Slider */
+        #slider {
+            position: relative;
+            width: 80%;
+            margin: 50px auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        #slider img {
+            width: 100%;
+            display: none;
+            animation: fadeIn 1s;
+        }
+
+        #slider img.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Kartlar */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            margin: 20px 0 10px;
+            color: #5c4b3b;
+        }
+
+        .card p {
+            padding: 0 15px 20px;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f1e8d4;
+            color: #5c4b3b;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+            border-top: 4px solid #d1c6b1;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+    </style>
+    <script>
+        const slides = document.querySelectorAll("#slider img");
+        let currentSlide = 0;
+
+        setInterval(() => {
+            slides[currentSlide].classList.remove("active");
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add("active");
+        }, 3000);
+    </script>
+</head>
+<body>
+    <header>
+        <h1>SEPHORA</h1>
+        <div class="sub-title">Zarif ve Lüks Güzellik</div>
+    </header>
+
+    <!-- Navbar -->
+    <nav>
+        <!-- Logo ve SEPHORA yazısı -->
+        <div class="logo">
+            <img src="https://via.placeholder.com/50x50?text=Logo" alt="SEPHORA Logo">
+            <h1>SEPHORA</h1>
+        </div>
+        
+        <!-- Menü Linkleri -->
+        <div>
+            <a href="#">Ana Sayfa</a>
+            <a href="#">Ürünler</a>
+            <a href="#">Hakkımızda</a>
+            <a href="#">İletişim</a>
+        </div>
+    </nav>
+
+    <!-- Slider -->
+    <div id="slider">
+        <img src="https://www.sephora.com.tr/on/demandware.static/-/Sites-siteCatalog_Sephora_TR/tr_TR/dw0731b57e/category_banners/1440x300_tumurunler.png" class="active" alt="Ürünler">
+        <img src="https://www.sephora.com.tr/on/demandware.static/-/Sites-siteCatalog_Sephora_TR/default/dw1ce23edc/PLPBanner_TikTok-trends.jpg" alt="TikTok Trendleri">
+        <img src="https://www.sephora.com.tr/on/demandware.static/-/Sites-siteCatalog_Sephora_TR/tr_TR/dw019a5c77/category_banners/Makyaj/Makyaj_981_190.jpg" alt="Makyaj">
+    </div>
+
+    <!-- Kartlar -->
+    <section class="card-container">
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200?text=Parfüm+Koleksiyonu" alt="Parfüm">
+            <h3>Parfüm Koleksiyonu</h3>
+            <p>En özel parfümlerle kendinizi şımartın.</p>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200?text=Cilt+Bakımı" alt="Cilt Bakımı">
+            <h3>Cilt Bakımı</h3>
+            <p>Işıldayan bir cilt için öneriler ve ürünler.</p>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200?text=Makyaj+Ürünleri" alt="Makyaj">
+            <h3>Makyaj Ürünleri</h3>
+            <p>Göz alıcı makyaj görünümleri yaratın.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 SEPHORA. Tüm Hakları Saklıdır.</p>
+    </footer>
+</body>
+</html>
